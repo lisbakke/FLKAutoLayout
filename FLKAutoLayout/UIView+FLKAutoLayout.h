@@ -12,6 +12,7 @@ FOUNDATION_EXTERN NSString * const FLKNoConstraint;
 
 @interface UIView (FLKAutoLayout)
 
+- (NSArray*)flk_alignAttribute:(NSLayoutAttribute)attribute toView:(UIView*)view predicate:(NSString*)predicate;
 - (NSArray*)flk_alignAttribute:(NSLayoutAttribute)attribute toAttribute:(NSLayoutAttribute)toAttribute ofView:(UIView *)view predicate:(NSString*)predicate;
 
 

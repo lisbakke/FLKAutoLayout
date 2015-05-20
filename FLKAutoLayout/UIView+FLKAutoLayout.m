@@ -18,7 +18,7 @@ typedef NSArray* (^viewChainingBlock)(UIView* view1, UIView* view2);
 
 #pragma mark Generic constraint methods for two views
 
-- (NSArray*)alignAttribute:(NSLayoutAttribute)attribute toView:(UIView*)view predicate:(NSString*)predicate {
+- (NSArray*)flk_alignAttribute:(NSLayoutAttribute)attribute toView:(UIView*)view predicate:(NSString*)predicate {
     NSArray* views = view ? @[view] : nil;
     return [UIView flk_alignAttribute:attribute ofViews:@[self] toViews:views predicate:predicate];
 }
