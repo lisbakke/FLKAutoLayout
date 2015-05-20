@@ -20,11 +20,11 @@ FLKAutoLayoutPredicate FLKAutoLayoutPredicateMake(NSLayoutRelation relation, CGF
 @implementation UIView (FLKAutoLayoutPredicate)
 
 
-- (NSLayoutConstraint*)applyPredicate:(FLKAutoLayoutPredicate)predicate toView:(UIView*)toView attribute:(NSLayoutAttribute)attribute {
-    return [self applyPredicate:predicate toView:toView fromAttribute:attribute toAttribute:attribute];
+- (NSLayoutConstraint*)flk_applyPredicate:(FLKAutoLayoutPredicate)predicate toView:(UIView *)toView attribute:(NSLayoutAttribute)attribute {
+    return [self flk_applyPredicate:predicate toView:toView fromAttribute:attribute toAttribute:attribute];
 }
 
-- (NSLayoutConstraint*)applyPredicate:(FLKAutoLayoutPredicate)predicate toView:(UIView*)view fromAttribute:(NSLayoutAttribute)fromAttribute toAttribute:(NSLayoutAttribute)toAttribute {
+- (NSLayoutConstraint*)flk_applyPredicate:(FLKAutoLayoutPredicate)predicate toView:(UIView *)view fromAttribute:(NSLayoutAttribute)fromAttribute toAttribute:(NSLayoutAttribute)toAttribute {
     if (predicate.priority > UILayoutPriorityRequired) return nil;
 
     UIView* commonSuperview = [self commonSuperviewWithView:view];

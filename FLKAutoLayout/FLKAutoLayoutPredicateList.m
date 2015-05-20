@@ -12,7 +12,7 @@
     NSMutableArray* predicates;
 }
 
-+ predicateListFromString:(NSString*)string {
++ flk_predicateListFromString:(NSString*)string {
     FLKAutoLayoutPredicateList* predicateList = [[FLKAutoLayoutPredicateList alloc] init];
     NSArray* predicateStrings = [string componentsSeparatedByString:@","];
     if (!predicateStrings.count) {
@@ -34,7 +34,7 @@
     return self;
 }
 
-- (NSArray*)iteratePredicatesUsingBlock:(predicateBlock)block {
+- (NSArray*)flk_iteratePredicatesUsingBlock:(predicateBlock)block {
     NSMutableArray* constraints = [NSMutableArray array];
     for (NSValue* predicateValue in predicates) {
         FLKAutoLayoutPredicate predicate;

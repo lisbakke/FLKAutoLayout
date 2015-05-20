@@ -19,7 +19,7 @@ FOUNDATION_EXTERN FLKAutoLayoutPredicate FLKAutoLayoutPredicateMake(NSLayoutRela
 
 @interface UIView (FLKAutoLayoutPredicate)
 
-- (NSLayoutConstraint*)applyPredicate:(FLKAutoLayoutPredicate)predicate toView:(UIView*)toView attribute:(NSLayoutAttribute)attribute;
-- (NSLayoutConstraint*)applyPredicate:(FLKAutoLayoutPredicate)predicate toView:(UIView*)view fromAttribute:(NSLayoutAttribute)fromAttribute toAttribute:(NSLayoutAttribute)toAttribute;
+- (NSLayoutConstraint*)flk_applyPredicate:(FLKAutoLayoutPredicate)predicate toView:(UIView *)toView attribute:(NSLayoutAttribute)attribute;
+- (NSLayoutConstraint*)flk_applyPredicate:(FLKAutoLayoutPredicate)predicate toView:(UIView *)view fromAttribute:(NSLayoutAttribute)fromAttribute toAttribute:(NSLayoutAttribute)toAttribute;
 
 @end
