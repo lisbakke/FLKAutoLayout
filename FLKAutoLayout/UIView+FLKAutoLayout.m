@@ -68,31 +68,31 @@ typedef NSArray* (^viewChainingBlock)(UIView* view1, UIView* view2);
 #pragma mark Constraining one edge of two views
 
 - (NSArray*)flk_alignLeadingEdgeWithView:(UIView *)view predicate:(NSString*)predicate {
-    return [self alignAttribute:NSLayoutAttributeLeading toView:view predicate:predicate];
+    return [self flk_alignAttribute:NSLayoutAttributeLeading toView:view predicate:predicate];
 }
 
 - (NSArray*)flk_alignTrailingEdgeWithView:(UIView *)view predicate:(NSString*)predicate {
-    return [self alignAttribute:NSLayoutAttributeTrailing toView:view predicate:predicate];
+    return [self flk_alignAttribute:NSLayoutAttributeTrailing toView:view predicate:predicate];
 }
 
 - (NSArray*)flk_alignTopEdgeWithView:(UIView *)view predicate:(NSString*)predicate {
-    return [self alignAttribute:NSLayoutAttributeTop toView:view predicate:predicate];
+    return [self flk_alignAttribute:NSLayoutAttributeTop toView:view predicate:predicate];
 }
 
 - (NSArray*)flk_alignBottomEdgeWithView:(UIView *)view predicate:(NSString*)predicate {
-    return [self alignAttribute:NSLayoutAttributeBottom toView:view predicate:predicate];
+    return [self flk_alignAttribute:NSLayoutAttributeBottom toView:view predicate:predicate];
 }
 
 - (NSArray*)flk_alignBaselineWithView:(UIView *)view predicate:(NSString*)predicate {
-    return [self alignAttribute:NSLayoutAttributeBaseline toView:view predicate:predicate];
+    return [self flk_alignAttribute:NSLayoutAttributeBaseline toView:view predicate:predicate];
 }
 
 - (NSArray*)flk_alignCenterXWithView:(UIView *)view predicate:(NSString*)predicate {
-    return [self alignAttribute:NSLayoutAttributeCenterX toView:view predicate:predicate];
+    return [self flk_alignAttribute:NSLayoutAttributeCenterX toView:view predicate:predicate];
 }
 
 - (NSArray*)flk_alignCenterYWithView:(UIView *)view predicate:(NSString*)predicate {
-    return [self alignAttribute:NSLayoutAttributeCenterY toView:view predicate:predicate];
+    return [self flk_alignAttribute:NSLayoutAttributeCenterY toView:view predicate:predicate];
 }
 
 - (NSArray*)flk_alignCenterWithView:(UIView*)view {
@@ -111,19 +111,19 @@ typedef NSArray* (^viewChainingBlock)(UIView* view1, UIView* view2);
 }
 
 - (NSArray*)flk_constrainWidth:(NSString*)widthPredicate {
-    return [self alignAttribute:NSLayoutAttributeWidth toView:nil predicate:widthPredicate];
+    return [self flk_alignAttribute:NSLayoutAttributeWidth toView:nil predicate:widthPredicate];
 }
 
 - (NSArray*)flk_constrainHeight:(NSString*)heightPredicate {
-    return [self alignAttribute:NSLayoutAttributeHeight toView:nil predicate:heightPredicate];
+    return [self flk_alignAttribute:NSLayoutAttributeHeight toView:nil predicate:heightPredicate];
 }
 
 - (NSArray*)flk_constrainWidthToView:(UIView *)view predicate:(NSString*)predicate {
-    return [self alignAttribute:NSLayoutAttributeWidth toView:view predicate:predicate];
+    return [self flk_alignAttribute:NSLayoutAttributeWidth toView:view predicate:predicate];
 }
 
 - (NSArray*)flk_constrainHeightToView:(UIView *)view predicate:(NSString*)predicate {
-    return [self alignAttribute:NSLayoutAttributeHeight toView:view predicate:predicate];
+    return [self flk_alignAttribute:NSLayoutAttributeHeight toView:view predicate:predicate];
 }
 
 - (NSArray*)flk_constrainAspectRatio:(NSString*)predicate {
