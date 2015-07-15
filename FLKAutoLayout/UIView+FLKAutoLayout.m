@@ -278,4 +278,32 @@ typedef NSArray* (^viewChainingBlock)(UIView* view1, UIView* view2);
     return constraints;
 }
 
++ (void)flk_spaceOutViewsHorizontally:(NSMutableArray *)array inView:(UIView *)view {
+  UIView *previousSpacer;
+  UIView *firstSpacer;
+  for (NSUInteger i = 0; i < array.count; i++) {
+    UIView *spaceView = array[i];
+    if (!previousSpacer) {
+      previousSpacer = [UIView new];
+      [view addSubview:previousSpacer];
+      [previousSpacer flk_alignTop:@"0" bottom:@"0" toView:spaceView];
+      [previousSpacer flk_alignLeadingEdgeWithView:view predicate:@"0"];
+      [previousSpacer flk_constrainWidth:@"10@1"];
+      firstSpacer = previousSpacer;
+    }
+    [spaceView flk_constrainLeadingSpaceToView:previousSpacer predicate:@"0"];
+
+    UIView *trailingSpacer = [UIView new];
+    [view addSubview:trailingSpacer];
+    [trailingSpacer flk_alignTop:@"0" bottom:@"0" toView:spaceView];
+    [trailingSpacer flk_constrainLeadingSpaceToView:spaceView predicate:@"0"];
+    [trailingSpacer flk_constrainWidthToView:firstSpacer predicate:@"0"];
+
+    if (i == array.count - 1) {
+      [trailingSpacer flk_alignTrailingEdgeWithView:view predicate:@"0"];
+    }
+    previousSpacer = trailingSpacer;
+  }
+}
+
 @end
