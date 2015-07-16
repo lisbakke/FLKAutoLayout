@@ -73,4 +73,6 @@ FOUNDATION_EXTERN NSString * const FLKNoConstraint;
 + (NSArray*)flk_distributeCenterYOfViews:(NSArray *)views inView:(UIView*)inView;
 
 + (void)flk_spaceOutViewsHorizontally:(NSMutableArray *)array inView:(UIView *)view;
+
++ (void)flk_spaceOutViewsVertically:(NSArray *)array inView:(UIView *)view;
 @end
