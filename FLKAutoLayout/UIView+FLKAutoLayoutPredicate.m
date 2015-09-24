@@ -46,8 +46,11 @@ FLKAutoLayoutPredicate FLKAutoLayoutPredicateMake(NSLayoutRelation relation, CGF
 }
 
 - (UIView*)commonSuperviewWithView:(UIView*)view {
+    Class layoutGuideGlass = NSClassFromString(@"UILayoutGuide");
     if (!view) {
         return self;
+    } else if (layoutGuideGlass && [view isKindOfClass:[layoutGuideGlass class]]) {
+      return self.superview;
     } else if (self.superview == view) {
         return view;
     } else if (self == view.superview) {
