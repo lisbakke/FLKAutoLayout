@@ -31,12 +31,12 @@ FLKAutoLayoutPredicate FLKAutoLayoutPredicateMake(NSLayoutRelation relation, CGF
     self.translatesAutoresizingMaskIntoConstraints = NO;
 
     NSLayoutConstraint *constraint = [NSLayoutConstraint constraintWithItem:self
-                                              attribute:fromAttribute
-                                              relatedBy:predicate.relation
-                                                 toItem:view
-                                              attribute:toAttribute
-                                             multiplier:predicate.multiplier
-                                               constant:predicate.constant];
+                                                                  attribute:fromAttribute
+                                                                  relatedBy:predicate.relation
+                                                                     toItem:view
+                                                                  attribute:toAttribute
+                                                                 multiplier:predicate.multiplier
+                                                                   constant:predicate.constant];
     if (predicate.priority) {
         constraint.priority = predicate.priority;
     }
@@ -46,11 +46,14 @@ FLKAutoLayoutPredicate FLKAutoLayoutPredicateMake(NSLayoutRelation relation, CGF
 }
 
 - (UIView*)commonSuperviewWithView:(UIView*)view {
-    Class layoutGuideGlass = NSClassFromString(@"UILayoutGuide");
+#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 90000
+    if ([view isKindOfClass:[UILayoutGuide class]]) {
+        UILayoutGuide *guide = (UILayoutGuide *)view;
+        return guide.owningView;
+    }
+#endif
     if (!view) {
         return self;
-    } else if (layoutGuideGlass && [view isKindOfClass:[layoutGuideGlass class]]) {
-      return self.superview;
     } else if (self.superview == view) {
         return view;
     } else if (self == view.superview) {
