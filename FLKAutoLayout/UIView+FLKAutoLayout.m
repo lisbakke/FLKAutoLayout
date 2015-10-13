@@ -278,7 +278,7 @@ typedef NSArray* (^viewChainingBlock)(UIView* view1, UIView* view2);
     return constraints;
 }
 
-+ (void)flk_spaceOutViewsHorizontally:(NSMutableArray *)array inView:(UIView *)view {
++ (void)flk_spaceOutViewsHorizontally:(NSArray *)array inView:(UIView *)view {
   UIView *previousSpacer;
   UIView *firstSpacer;
   for (NSUInteger i = 0; i < array.count; i++) {
